@@ -26,9 +26,10 @@ namespace Portfolio.Backend.Controllers
                 await _emailService.SendEmailAsync(request);
                 return Ok(new { message = "Email sent successfully" });
             }
-            catch(Exception e)
+          catch (Exception e)
             {
-                return StatusCode(500, "Error sending email");
+                Console.WriteLine($"Email error: {e.Message}");
+                return StatusCode(500, $"Error sending email: {e.Message}");
             }
         }
     }
