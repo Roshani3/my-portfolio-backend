@@ -21,7 +21,8 @@ builder.Services.AddCors(options =>
 builder.Services.AddScoped<IEmailService, EmailService>();
 
 var app = builder.Build();
-
+app.UseSwagger();
+app.UseSwaggerUI();
 // Enable CORS
 app.UseCors("AllowAngular");
 
